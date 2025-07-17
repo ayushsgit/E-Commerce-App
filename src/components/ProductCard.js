@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Image } from 'react-native';
 import { colors, typography } from '../theme';
 
 const { width } = Dimensions.get('window');
@@ -28,7 +28,17 @@ const ProductCard = ({ product, onPress, size = 'large' }) => {
       onPress={() => onPress(product)}
       activeOpacity={0.8}
     >
-      <View style={[styles.image, isSmall ? styles.imageSmall : styles.imageLarge]} />
+      <View style={[styles.imageContainer, isSmall ? styles.imageSmall : styles.imageLarge]}>
+        {product.image ? (
+          <Image
+            source={{ uri: product.image }}
+            style={styles.productImage}
+            resizeMode="cover"
+          />
+        ) : (
+          <View style={styles.placeholderImage} />
+        )}
+      </View>
       <View style={styles.info}>
         <Text style={[styles.name, isSmall && styles.nameSmall]} numberOfLines={2}>
           {product.name}
@@ -56,10 +66,11 @@ const styles = StyleSheet.create({
     elevation: 3,
     marginBottom: 16,
   },
-  image: {
+  imageContainer: {
     backgroundColor: colors.background.lightGray,
     borderTopLeftRadius: 12,
     borderTopRightRadius: 12,
+    overflow: 'hidden',
   },
   imageSmall: {
     height: 116,
@@ -68,6 +79,15 @@ const styles = StyleSheet.create({
   },
   imageLarge: {
     height: 160,
+  },
+  productImage: {
+    width: '100%',
+    height: '100%',
+  },
+  placeholderImage: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: colors.background.lightGray,
   },
   info: {
     padding: 12,

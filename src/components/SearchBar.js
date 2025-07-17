@@ -1,12 +1,17 @@
 import React from 'react';
 import { View, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { colors, typography } from '../theme';
 
 const SearchBar = ({ onPress, value, onChangeText, placeholder = "Search for products..." }) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress} activeOpacity={0.8}>
       <View style={styles.searchBar}>
-        <View style={styles.searchIcon} />
+        <Ionicons 
+          name="search" 
+          size={20} 
+          color={colors.text.medium} 
+        />
         <TextInput
           style={styles.input}
           placeholder={placeholder}
@@ -15,7 +20,13 @@ const SearchBar = ({ onPress, value, onChangeText, placeholder = "Search for pro
           onChangeText={onChangeText}
           editable={!onPress}
         />
-        <View style={styles.filterIcon} />
+        <TouchableOpacity style={styles.filterButton} activeOpacity={0.8}>
+          <Ionicons 
+            name="options" 
+            size={20} 
+            color={colors.text.white} 
+          />
+        </TouchableOpacity>
       </View>
     </TouchableOpacity>
   );
@@ -36,22 +47,19 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     gap: 12,
   },
-  searchIcon: {
-    width: 20,
-    height: 20,
-    backgroundColor: colors.text.medium,
-    borderRadius: 4,
-  },
   input: {
     flex: 1,
     ...typography.body,
     color: colors.text.dark,
   },
-  filterIcon: {
-    width: 20,
-    height: 20,
+  filterButton: {
     backgroundColor: colors.primary.green,
     borderRadius: 4,
+    padding: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 24,
+    height: 24,
   },
 });
 

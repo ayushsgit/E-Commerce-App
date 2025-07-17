@@ -19,10 +19,34 @@ const HomeScreen = ({ navigation }) => {
   ];
 
   const recommendedProducts = [
-    { id: 1, name: 'Cotton T-Shirt', price: '29.99', rating: 5 },
-    { id: 2, name: 'Denim Jacket', price: '89.99', rating: 4 },
-    { id: 3, name: 'Sneakers', price: '79.99', rating: 5 },
-    { id: 4, name: 'Casual Pants', price: '49.99', rating: 4 },
+    { 
+      id: 1, 
+      name: 'Cotton T-Shirt', 
+      price: '29.99', 
+      rating: 5,
+      image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop'
+    },
+    { 
+      id: 2, 
+      name: 'Denim Jacket', 
+      price: '89.99', 
+      rating: 4,
+      image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop'
+    },
+    { 
+      id: 3, 
+      name: 'Sneakers', 
+      price: '79.99', 
+      rating: 5,
+      image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop'
+    },
+    { 
+      id: 4, 
+      name: 'Casual Pants', 
+      price: '49.99', 
+      rating: 4,
+      image: 'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400&h=400&fit=crop'
+    },
   ];
 
   const CategoryCard = ({ category }) => (
