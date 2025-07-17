@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Ionicons } from '@expo/vector-icons';
 
 import CustomStatusBar from '../components/StatusBar';
 import { colors, typography } from '../theme';
@@ -23,16 +24,11 @@ const ProductDetailScreen = ({ navigation, route }) => {
   const StarRating = ({ rating = 5, size = 16 }) => (
     <View style={styles.starContainer}>
       {[...Array(5)].map((_, index) => (
-        <View
+        <Ionicons
           key={index}
-          style={[
-            styles.star,
-            {
-              width: size,
-              height: size,
-              backgroundColor: index < rating ? colors.accent.yellow : colors.border.light
-            }
-          ]}
+          name={index < rating ? "star" : "star-outline"}
+          size={size}
+          color={index < rating ? colors.accent.yellow : colors.border.light}
         />
       ))}
       <Text style={[styles.ratingText, { marginLeft: 8 }]}>4.8 (127 reviews)</Text>
@@ -49,10 +45,10 @@ const ProductDetailScreen = ({ navigation, route }) => {
           style={styles.backButton}
           onPress={() => navigation.goBack()}
         >
-          <View style={styles.backArrow} />
+          <Ionicons name="chevron-back" size={24} color={colors.text.dark} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.shareButton}>
-          <View style={styles.shareIcon} />
+          <Ionicons name="share-outline" size={24} color={colors.text.dark} />
         </TouchableOpacity>
       </View>
 
@@ -146,7 +142,11 @@ const ProductDetailScreen = ({ navigation, route }) => {
           style={[styles.wishlistButton, isWishlisted && styles.wishlistButtonActive]}
           onPress={() => setIsWishlisted(!isWishlisted)}
         >
-          <View style={styles.heartIcon} />
+          <Ionicons 
+            name={isWishlisted ? "heart" : "heart-outline"} 
+            size={24} 
+            color={isWishlisted ? colors.background.white : colors.text.dark} 
+          />
         </TouchableOpacity>
         <TouchableOpacity style={styles.addToCartButton}>
           <Text style={styles.addToCartText}>Add to Cart</Text>
@@ -173,23 +173,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  backArrow: {
-    width: 24,
-    height: 24,
-    backgroundColor: colors.text.dark,
-    borderRadius: 4,
-  },
   shareButton: {
     width: 40,
     height: 40,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  shareIcon: {
-    width: 24,
-    height: 24,
-    backgroundColor: colors.text.dark,
-    borderRadius: 4,
   },
   content: {
     flex: 1,
@@ -283,10 +271,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  star: {
-    borderRadius: 2,
-    marginRight: 2,
-  },
   ratingText: {
     ...typography.bodySmall,
     color: colors.text.medium,
@@ -316,12 +300,6 @@ const styles = StyleSheet.create({
   wishlistButtonActive: {
     backgroundColor: colors.primary.green,
     borderColor: colors.primary.green,
-  },
-  heartIcon: {
-    width: 24,
-    height: 24,
-    backgroundColor: colors.text.dark,
-    borderRadius: 4,
   },
   addToCartButton: {
     flex: 1,

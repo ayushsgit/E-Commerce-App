@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Ionicons } from '@expo/vector-icons';
 
 import CustomStatusBar from '../components/StatusBar';
 import TopNavigation from '../components/TopNavigation';
@@ -11,10 +12,10 @@ import { colors, typography } from '../theme';
 
 const HomeScreen = ({ navigation }) => {
   const categories = [
-    { id: 1, name: 'New Arrivals', icon: '🆕' },
-    { id: 2, name: 'Best Sellers', icon: '🔥' },
-    { id: 3, name: 'Sale', icon: '💰' },
-    { id: 4, name: 'Categories', icon: '📱' },
+    { id: 1, name: 'New Arrivals', icon: 'sparkles' },
+    { id: 2, name: 'Best Sellers', icon: 'flame' },
+    { id: 3, name: 'Sale', icon: 'pricetag' },
+    { id: 4, name: 'Categories', icon: 'grid' },
   ];
 
   const recommendedProducts = [
@@ -30,7 +31,13 @@ const HomeScreen = ({ navigation }) => {
       onPress={() => navigation.navigate('ProductListing', { category: category.name })}
       activeOpacity={0.8}
     >
-      <View style={styles.categoryIcon} />
+      <View style={styles.categoryIcon}>
+        <Ionicons 
+          name={category.icon} 
+          size={24} 
+          color={colors.background.white} 
+        />
+      </View>
       <Text style={styles.categoryLabel}>{category.name}</Text>
     </TouchableOpacity>
   );
@@ -134,6 +141,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary.green,
     borderRadius: 12,
     marginBottom: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   categoryLabel: {
     ...typography.bodySmall,

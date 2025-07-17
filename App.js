@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { StatusBar } from 'expo-status-bar';
+// import { StatusBar } from 'expo-status-bar'; // Comment this out temporarily
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import HomeScreen from './src/screens/HomeScreen';
@@ -15,7 +15,7 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <StatusBar style="dark" />
+        {/* <StatusBar style="dark" /> */}
         <Stack.Navigator
           initialRouteName="Home"
           screenOptions={{

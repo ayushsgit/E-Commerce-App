@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, TextInput, StyleSheet, FlatList } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Ionicons } from '@expo/vector-icons';
 
 import CustomStatusBar from '../components/StatusBar';
 import { colors, typography } from '../theme';
@@ -57,21 +58,21 @@ const CartScreen = ({ navigation }) => {
           style={styles.quantityButton}
           onPress={() => updateQuantity(item.id, -1)}
         >
-          <Text style={styles.quantityButtonText}>-</Text>
+          <Ionicons name="remove" size={16} color={colors.text.dark} />
         </TouchableOpacity>
         <Text style={styles.quantityText}>{item.quantity}</Text>
         <TouchableOpacity
           style={styles.quantityButton}
           onPress={() => updateQuantity(item.id, 1)}
         >
-          <Text style={styles.quantityButtonText}>+</Text>
+          <Ionicons name="add" size={16} color={colors.text.dark} />
         </TouchableOpacity>
       </View>
       <TouchableOpacity
         style={styles.removeButton}
         onPress={() => removeItem(item.id)}
       >
-        <View style={styles.removeIcon} />
+        <Ionicons name="trash-outline" size={16} color={colors.text.medium} />
       </TouchableOpacity>
     </View>
   );
@@ -86,7 +87,7 @@ const CartScreen = ({ navigation }) => {
           style={styles.backButton}
           onPress={() => navigation.goBack()}
         >
-          <View style={styles.backArrow} />
+          <Ionicons name="chevron-back" size={24} color={colors.text.dark} />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>My Cart</Text>
         <View style={styles.placeholder} />
@@ -103,6 +104,7 @@ const CartScreen = ({ navigation }) => {
 
         {cartItems.length === 0 && (
           <View style={styles.emptyCart}>
+            <Ionicons name="bag-outline" size={80} color={colors.text.medium} />
             <Text style={styles.emptyCartText}>Your cart is empty</Text>
             <TouchableOpacity
               style={styles.shopNowButton}
@@ -184,12 +186,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  backArrow: {
-    width: 24,
-    height: 24,
-    backgroundColor: colors.text.dark,
-    borderRadius: 4,
-  },
   headerTitle: {
     ...typography.subtitle,
     color: colors.text.dark,
@@ -247,10 +243,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  quantityButtonText: {
-    ...typography.body,
-    color: colors.text.dark,
-  },
   quantityText: {
     ...typography.body,
     color: colors.text.dark,
@@ -263,12 +255,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  removeIcon: {
-    width: 16,
-    height: 16,
-    backgroundColor: colors.text.medium,
-    borderRadius: 2,
-  },
   emptyCart: {
     flex: 1,
     justifyContent: 'center',
@@ -279,6 +265,7 @@ const styles = StyleSheet.create({
     ...typography.subtitle,
     color: colors.text.medium,
     marginBottom: 24,
+    marginTop: 16,
   },
   shopNowButton: {
     backgroundColor: colors.primary.green,
