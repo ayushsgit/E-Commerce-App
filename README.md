@@ -25,11 +25,7 @@ A modern, feature-rich ecommerce mobile application built with React Native and 
 
 | Home Screen | Product Listing | Shopping Cart | Product Detail |
 |-------------|----------------|---------------|----------------|
-| ![Home](![home](https://github.com/user-attachments/assets/5e52ddea-ccb2-4e53-bf44-724fd9ae9f0b)
-) | ![Products](![products](https://github.com/user-attachments/assets/72d08037-db25-4100-b3c2-0657dc21e731)
-) | ![Cart](![cart](https://github.com/user-attachments/assets/202d82a8-672f-4743-95ba-ecdf8a1ca69c)
-) | ![Detail](![detail](https://github.com/user-attachments/assets/c7231c38-c9e1-4e37-ba8b-88a7f7ee35b7)
-) |
+| ![Home](https://github.com/user-attachments/assets/5e52ddea-ccb2-4e53-bf44-724fd9ae9f0b) | ![Products](https://github.com/user-attachments/assets/72d08037-db25-4100-b3c2-0657dc21e731) | ![Cart](https://github.com/user-attachments/assets/202d82a8-672f-4743-95ba-ecdf8a1ca69c) | ![Detail](https://github.com/user-attachments/assets/c7231c38-c9e1-4e37-ba8b-88a7f7ee35b7) |
 
 
 ## 🛠️ Installation & Setup
